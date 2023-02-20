@@ -1,0 +1,75 @@
+/* .main {
+  text-align: center;
+} */
+body {
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+}
+
+.center {
+  margin: auto;
+  width: 45%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 50px;
+  background-color: #fcfcfc;
+}
+
+.btn {
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  color: white;
+  padding: 5px;
+  width: 100px;
+  margin-top: 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  width: 100%;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.react-datepicker__close-icon::after {
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+}
+
+.grid {
+padding: 15px;
+}
+
+.modal-content * {
+  border: none;
+}
+/* .modal-title,
+.modal-footer {
+  margin: 0 auto;
+} */
+.modal-body {
+  padding-top: 0px;
+}
+
+.modal-header .close {
+  position: absolute;
+  top: -2px;
+  right: 2px;
+}
+
+.modal-div {
+  text-align: left !important;
+}
+
+.topnav-right {
+  float: right;
+  margin-right: 20px;
+}
