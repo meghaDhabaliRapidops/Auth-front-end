@@ -9,8 +9,6 @@ export interface LoginProps {
   name?: string;
 }
 
-
-// hgfdhgcd
 function Login() {
   const navigate = useNavigate();
   const [inputValues, setInputValue] = useState<LoginProps>({
@@ -57,18 +55,6 @@ function Login() {
     checkValidation();
   }, [inputValues]);
 
-  // useEffect(() => {
-  //   document.title = "Login Page";
-  //   const isLogedOut = window.localStorage.getItem("logged_out");
-  //   console.log("isLogedOut", isLogedOut);
-  //   if(isLogedOut == null) {
-  //     navigate("/dashboard");
-  //   }
-  //   else {
-  //     navigate("/login");
-  //   }
-  // }, []);
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     loginAdmin(inputValues);
@@ -84,28 +70,25 @@ function Login() {
         withCredentials: true,
       })
       .then((result) => {
-        console.log("resultttt", result);
         if (result.data !== "") {
           setInputValue({
             email: "",
             password: "",
           });
           alert("User logged successfully");
-         window.localStorage.removeItem("logged_out");
+          window.localStorage.removeItem("logged_out");
           navigate("/dashboard");
         } else {
           alert("Incorrect username or password");
-          console.log(result.data);
+          navigate("/login");
         }
       })
       .catch((error) => {
-        console.log("inside error part");
         console.log(error);
         alert("User does not exist");
         navigate("/login");
       });
   };
-
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -129,7 +112,6 @@ function Login() {
           }
         )
         .then((res) => {
-          console.log("res.data", res.data);
           const googleCreds = {
             email: res.data.email,
             name: res.data.name,

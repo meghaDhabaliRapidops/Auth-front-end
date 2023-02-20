@@ -96,14 +96,11 @@ const gridRef = useRef<AgGridReact>(null);
     axios
       .get(`http://localhost:4000/api/students`, { withCredentials: true })
       .then((result) => {
-        console.log("inside getGridData function");
-        console.log("result", result);
         setRowData(result.data);
       })
       .catch((error) => {
         alert("You are not authorized. Please login");
         navigate("/login");
-        console.log("inside error");
         console.log(error);
       });
   };
@@ -114,13 +111,11 @@ const gridRef = useRef<AgGridReact>(null);
   }, []);
 
   const logout = () => {
-    console.log("inside logout");
     axios
       .get(`http://localhost:4000/api/logout`, { withCredentials: true })
       .then((result) => {
         window.localStorage.setItem("logged_out", "yes");
         navigate("/login");
-        console.log("result", result);
       })
       .catch((error) => {
         console.log(error);

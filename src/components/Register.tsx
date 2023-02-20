@@ -60,7 +60,6 @@ function Register() {
 
   const onDateChange = (date: any) => {
     const myDate = new Date(date).toISOString().slice(0, 10);
-    console.log("dateeeeeeeeeeeeee", date);
     setDOB(date);
     setInputValue({ ...inputValues, date: date });
   };
@@ -134,7 +133,6 @@ function Register() {
         withCredentials: true,
       })
       .then((result) => {
-        console.log("resultttt", result);
         if (result.data !== "") {
           setInputValue({
             fullName: "",
@@ -158,8 +156,7 @@ function Register() {
       .catch((err) => {
         alert("User already exist.");
         navigate("/login");
-        // console.log("inside catch",err);
-        // console.log(err.message);
+        console.log(err.message);
       });
   };
 
