@@ -3,16 +3,19 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
+const queryClient = new QueryClient();
 root.render(
   <GoogleOAuthProvider clientId="288776257304-2je4ufr3asb2sn3sqqucb2jisqlkigpo.apps.googleusercontent.com">
     <React.StrictMode>
       <BrowserRouter>
-        <App />
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
       </BrowserRouter>
     </React.StrictMode>
   </GoogleOAuthProvider>
